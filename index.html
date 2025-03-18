@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>To Do List</title>
+    <title>The Hangman Game</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -20,9 +20,55 @@
   </head>
 
   <body>
-    <header></header>
+    <main class="container text-center">
+      <!-- game tittle-->
+      <h1 class="mb-4">Hangman!</h1>
 
-    <main></main>
+      <!-- select difficulty-->
+      <!-- change t0: Hard red -- master purpple -- inpossible dark purpple -->
+      <div id="dificultySelection" class="">
+        <!-- ADD BACK d-none  -->
+
+        <h3>Select Difficulty</h3>
+        <button
+          class="btn btn-success difficulty-btn"
+          onclick="startGame('easy')"
+        >
+          Easy
+        </button>
+
+
+        <button
+          class="btn btn-warning difficulty-btn"
+          onclick="startGame('medium')"
+        >
+          Medium
+        </button>
+
+
+        <button
+          class="btn btn-danger difficulty-btn"
+          onclick="startGame('hard')"
+        >
+          Hard
+        </button>
+      </div>
+
+      <div id="dificultyBox" class="mt-3 p-3 fw-bold">PLACEHOlDER TEXT</div>
+
+      <!-- game area; play the game-->
+      <div id="gameArea" class="mt-4">
+        <!-- ADD BACK d-none  -->
+
+        <!-- wrd display-->
+        <h2 id="wordDisplay" class="mb-3">_________________________</h2>
+
+        <!-- input for guessing-->
+         <div>
+          <input type="text" id="letterInput" maxlength="1" class="form-control">
+          <button class="btn btn-warning difficulty-btn" onclick="startGame('medium')">Medium</button>
+      </div>
+    </main>
 
     <footer></footer>
 
@@ -40,3 +86,10 @@
     <script src="script.js"></script>
   </body>
 </html>
+
+
+
+<!-- idea corner
+ 
+hard master and insane difficulty
+make it -back 2 splatoon project - so that when you hover over one of the btns it ives oyu a little discriptio of the dificulty-->
