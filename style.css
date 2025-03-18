@@ -1,0 +1,100 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+html {
+    height: 100%;
+    width: 100%;
+  }
+  
+  @font-face {
+    font-family: Hacked;
+    src: url(hacked-28425/Hacked-KerX.ttf);
+  }
+  
+  .word{
+    font-family: Hacked;
+  }
+
+
+  body {
+  background: url(imgs/backdrop.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  text-align: center;
+  color: #de2221;
+  }
+
+  li{
+    font-family: Hacked;
+  }
+  
+  .helpy{
+    margin-left: 50px;
+    height: 30%;
+    width: 10%;
+  }
+
+  h5{
+    font-family: Hacked;
+    margin-right: 85%;
+  }
+ 
+
+
+/* oher btn */
+  .add {
+    background-color: rgb(163, 0, 0);
+    color: rgb(255, 255, 255);
+  }
+  
+  .add:hover {
+    background-color: rgb(126, 0, 0);
+    color: rgb(255, 255, 255);
+  }
+  
+  .add:active {
+    background-color: rgb(107, 0, 0) !important;
+    color: rgb(255, 255, 255) !important;
+  }
+
+
+  /* clear btn */
+  .clear {
+    background-color: rgb(154, 0, 168);
+    color: white;
+  }
+  
+  .clear:hover {
+    background-color: rgb(97, 0, 105);
+    color: white;
+  }
+  
+  .clear:active {
+    background-color: rgb(58, 0, 63)!important;
+    color: white !important;
+  }
