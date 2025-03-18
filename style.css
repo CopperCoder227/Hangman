@@ -1,34 +1,40 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
 html {
     height: 100%;
     width: 100%;
   }
   
+.Ez{
+  background-color: rgb(95, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+
+
+.Md{
+  background-color: rgb(86, 0, 94);
+  color: white;
+}
+
+
+
+.Hd{
+  background-color: rgb(54, 0, 59);
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+  /*
   @font-face {
     font-family: Hacked;
     src: url(hacked-28425/Hacked-KerX.ttf);
