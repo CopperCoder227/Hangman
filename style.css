@@ -1,24 +1,59 @@
-
 html {
-    height: 100%;
-    width: 100%;
-  }
-  
+  height: 100%;
+  width: 100%;
+}
 
-.Ez{
+
+.Ez {
   background-color: rgb(95, 0, 0);
   color: rgb(255, 255, 255);
 }
 
 
-.Md{
+.Md {
   background-color: rgb(86, 0, 94);
   color: white;
 }
 
 
-.Hd{
+.Hd {
   background-color: rgb(54, 0, 59);
+  color: white;
+}
+
+
+.Ez:hover {
+  background-color: rgb(184, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+
+.Md:hover {
+  background-color: rgb(207, 0, 226);
+  color: white;
+}
+
+
+.Hd:hover {
+  background-color: rgb(157, 0, 172);
+  color: white;
+}
+
+
+.Ez:active {
+  background-color: rgb(184, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+
+.Md:active {
+  background-color: rgb(207, 0, 226);
+  color: white;
+}
+
+
+.Hd:active {
+  background-color: rgb(157, 0, 172);
   color: white;
 }
 
@@ -31,9 +66,7 @@ html {
 
 
 
-
-
-  /*
+/*
   @font-face {
     font-family: Hacked;
     src: url(hacked-28425/Hacked-KerX.ttf);
@@ -72,34 +105,34 @@ html {
 
 
 /* oher btn */
-  .add {
-    background-color: rgb(163, 0, 0);
-    color: rgb(255, 255, 255);
-  }
-  
-  .add:hover {
-    background-color: rgb(126, 0, 0);
-    color: rgb(255, 255, 255);
-  }
-  
-  .add:active {
-    background-color: rgb(107, 0, 0) !important;
-    color: rgb(255, 255, 255) !important;
-  }
+.add {
+  background-color: rgb(163, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+.add:hover {
+  background-color: rgb(126, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+.add:active {
+  background-color: rgb(107, 0, 0) !important;
+  color: rgb(255, 255, 255) !important;
+}
 
 
-  /* clear btn */
-  .clear {
-    background-color: rgb(154, 0, 168);
-    color: white;
-  }
-  
-  .clear:hover {
-    background-color: rgb(97, 0, 105);
-    color: white;
-  }
-  
-  .clear:active {
-    background-color: rgb(58, 0, 63)!important;
-    color: white !important;
-  }
+/* clear btn */
+.clear {
+  background-color: rgb(154, 0, 168);
+  color: white;
+}
+
+.clear:hover {
+  background-color: rgb(97, 0, 105);
+  color: white;
+}
+
+.clear:active {
+  background-color: rgb(58, 0, 63) !important;
+  color: white !important;
+}
