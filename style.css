@@ -3,6 +3,15 @@ html {
   width: 100%;
 }
 
+body {
+  background: url(imgs/back.gif);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  text-align: center;
+}
+
 
 .Ez {
   background-color: rgb(95, 0, 0);
@@ -57,6 +66,10 @@ html {
   color: white;
 }
 
+.board {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
 
 
 
