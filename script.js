@@ -10,6 +10,8 @@ const wordlist= [
 'Even',
 'Lost',
 'The',
+'Meow',
+'Tax',
 ]
 
 
@@ -23,8 +25,17 @@ const mxMistakes = 6
 function startGame(level){
     selectedWord = getRandomWord(level)
     
-    // Updae Dificulty selection bax
+    // Update Difficulty selection bax
     updateDifficultyDisplay(level)
+
+    //create placeholder for the selected word
+    displayedWord = '_'.repeat(selectedWord.length)
+    document.getElementById('wordDisplay').textContent = displayedWord.split('').join(' ')
+
+
+
+
+
 
     // hide difficulty selection and show game area
     document.getElementById("dificultySelection").classList.add('d-none')
