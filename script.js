@@ -91,4 +91,15 @@ function guessLetter(){
         //store guessed letter in guessedLetter]
         guessedLetters.push(guessedLetter)
     }
+
+
+    if(selectedWord.includes(guessedLetters)){
+        correctGuess(guessedLetter)
+    } else {
+        wrongGuesses(guessedLetter)
+    }
+
+    inputField.value = ''                                       //clear input field
+    inputField.focus()                                         // refocuses input feild for next guess
+
 }
