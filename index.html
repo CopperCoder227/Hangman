@@ -30,16 +30,27 @@
 
       <!-- select difficulty-->
       <!-- change t0: Hard red -- master purpple -- inpossible dark purpple -->
-      <div id="dificultySelection" class="board "> <!-- ADD BACK d-none  -->
-        <h3>Select Difficulty</h3>
-        <button class="btn difficulty-btn Ez" onclick="startGame('Hard')"> Hard </button>
-        <button class="btn difficulty-btn Md" onclick="startGame('Insane')"> Insane </button>
-        <button class="btn difficulty-btn Hd" onclick="startGame('Imposable')" > Imposable </button>
+      <div id="dificultySelection" class=" "> <!-- ADD BACK d-none  -->
+        <div class="row justify-content-center">
+          <div class="col-3 board">
+            <h3>Select Difficulty</h3>
+          </div>
+        </div>
+        <button class="btn difficulty-btn Ez col-3" onclick="startGame('Hard')"> Hard </button>
+        <button class="btn difficulty-btn Md col-3" onclick="startGame('Insane')"> Insane </button>
+        <button class="btn difficulty-btn Hd col-3" onclick="startGame('Imposable')" > Imposable </button>
       </div>
 
-      <div id="difficultyBox" class="mt-3 p-3 fw-bold d-none board">PLACEHOlDER TEXT</div> <!-- ADD BACK d-none  -->
+      
+      <div class="row justify-content-center">
+        <div class="col-3">
+          <div id="difficultyBox" class="mt-3 p-3 fw-bold d-none board2">PLACEHOlDER TEXT</div> <!-- ADD BACK d-none  -->
+        </div>
+      </div>
 
       <!-- game area; play the game-->
+      <div class="row justify-content-center">
+        <div class="col-3 board2">
       <div id="gameArea" class="mt-4 d-none"><!-- ADD BACK d-none  -->
 
         <!-- wrd display-->
@@ -60,6 +71,8 @@
       <!-- Restart Health-->
        <div class="mt-4">
         <btn id="restartBtn" class="btn btn-danger" onclick="restartGame()">Restart Game</btn>
+       </div>
+       </div>
        </div>
       
     </main>
