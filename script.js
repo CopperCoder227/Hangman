@@ -2,13 +2,13 @@ const wordlist= [
 'Lymphangioleiomyomatosis',
 'Disestablishmentarianism',
 'Defenestration',
-'Hyperpigmentation',
+'pneumonoultramicroscopicsilicovolcanoconiosis',
 'Antidisestablishmentarianism',
 'Istles',
 'Female',
 'random',
 'Even',
-'Lost',
+'Lost', 
 'The',
 'Meow',
 'Tax',
@@ -69,4 +69,26 @@ function updateDifficultyDisplay(level){
 
     //Apply CSS style
     difficultyBox.classList.add(level)
+}
+
+function guessLetter(){
+    let inputField = document.getElementById('letterInput')         //get input field
+    let guessedLetter = inputField.value.toLowerCase()             //convert to lower case
+
+    //check if input is valad between lowercase A-Z
+    if(!guessedLetter.match(/^[a-z]$/)){
+        alert('Please enter a letter between a-z')
+        inputField.value = ''                                       //clear input field
+        return                                                     //exit function
+    }
+
+    //check if lettre was already guessed
+    if(guessedLetters.includes(guessedLetter)){
+        alert('You already tried this letter! Put another letter you have yet to try!')
+        inputField.value = ''                                       //clear input field
+        return                                                     //exit function
+    } else{
+        //store guessed letter in guessedLetter]
+        guessedLetters.push(guessedLetter)
+    }
 }
