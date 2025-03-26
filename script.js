@@ -5,7 +5,7 @@ const wordlist= [
 'pneumonoultramicroscopicsilicovolcanoconiosis',
 'Antidisestablishmentarianism',
 'Istles',
-'Female',
+'Hangman',
 'random',
 'Even',
 'Lost', 
@@ -96,10 +96,61 @@ function guessLetter(){
     if(selectedWord.includes(guessedLetters)){
         correctGuess(guessedLetter)
     } else {
-        wrongGuesses(guessedLetter)
+        wrongGuess(guessedLetter)
     }
 
     inputField.value = ''                                       //clear input field
     inputField.focus()                                         // refocuses input feild for next guess
 
+}
+
+function wrongGuess(guessedLetter){
+    //increment # of wrong guessed
+    wrongGuesses++
+
+    //add the guessed letter to the guessed letters display
+    document.getElementById('wrongLetters').textContent += ` ${guessedLetter}`
+
+    document.getElementById('shamrock').src = `imgs/shamrock${6 - wrongGuesses}.jpg`
+
+    //check to see if the # of wrong guesses is equal to the maxMistakes if i is then call endgame(false)
+    if(wrongGuesses === maxMistakes){
+        endgame(false)
+    }
+
+}
+
+function correctGuess(guessedLetter){
+   let newDisplyWord = '' 
+
+   for (let i = 0; i < selectedWord.length; i++){
+    if (selectedWord[i] === guessedLetter){
+        newDisplayWord += guessedLetter
+    } else {
+        newDisplayWord += displayedWord[i]
+    }
+  }
+
+    displayWord = newDisplayWord 
+    document.getElementById('wordDisplay').textContent = displayedWord
+    .split('')
+    .join(' ')
+
+    if(displayedWord.includes('_')){
+        endGame(true)
+    }
+}
+
+function endGame(won){
+    if (won == true){
+        setTimeout(() => alert('yay you won'), 100)
+
+    } else{
+        setTimeout(() => alert('yay you lost'), 100)
+
+    }
+}
+
+function restartGame(){
+    location.reload()
 }
