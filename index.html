@@ -20,7 +20,7 @@
   </head>
 
   <body>
-    <main class="container text-center">
+    <main>
       <!-- game tittle-->
        <div class="row justify-content-center">
         <div class="col-3">
@@ -36,22 +36,39 @@
           </div>
         </div>
 
-     <div class="container ">
-          <button class="btn difficulty-btn Ez col-3 row" onclick="startGame('Hard')"> Hard 
-          <div class="middle Ez">
-            <div class="text2">
-              The Squid Sisters
+        <br>
+        <br>
+        
+     <div class="container">
+
+<div class="row justify-content-around">
+          <button class="btn difficulty-btn Ez col-3" onclick="startGame('Hard')"> <span>Hard</span> 
+          <div class="start EzT">
+            <div class="text">
+              Random words that are 4 or less letters!
                 <br>
             </div>
           </div>
         </button>
-      </div>
-       
+          <button class="btn difficulty-btn Md col-3" onclick="startGame('Insane')"> <span>Insane</span> 
+          <div class="middle MdT">
+            <div class="text">
+              Random words that are 5 to 7 letters!
+                <br>
+            </div>
+          </div>
+        </button>
+          <button class="btn difficulty-btn Hd col-3" onclick="startGame('Imposable')"> <span>Imposable</span> 
+          <div class="end HdT">
+            <div class="text">
+              Random words that are 8 or more letters!
+                <br>
+            </div>
+          </div>
+        </button>
 
-      
-        <button class="btn difficulty-btn Ez col-3" onclick="startGame('Hard')"> Hard </button>
-        <button class="btn difficulty-btn Md col-3" onclick="startGame('Insane')"> Insane </button>
-        <button class="btn difficulty-btn Hd col-3" onclick="startGame('Imposable')" > Imposable </button>
+      </div>
+      </div>
       </div>
 
       

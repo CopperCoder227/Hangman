@@ -16,18 +16,25 @@ body {
 .Ez {
   background-color: rgb(95, 0, 0);
   color: rgb(255, 255, 255);
+  position: relative;
+
+  span {
+    transition: 0.2s;
+  }
 }
 
 
 .Md {
   background-color: rgb(86, 0, 94);
   color: white;
+  position: relative;
 }
 
 
 .Hd {
   background-color: rgb(54, 0, 59);
   color: white;
+  position: relative;
 }
 
 
@@ -98,25 +105,75 @@ body {
 }
 
 
-.middle {
-  transition: .5s ease;
-  opacity: 0;
+.start {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   text-align: center;
+  transition: .5s ease;
+  opacity: 0;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  transition: .5s ease;
+  opacity: 0;
+}
+
+.end {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  transition: .5s ease;
+  opacity: 0;
 }
 
 .container:hover .image {
   opacity: 0.3;
 }
 
-.container:hover .middle {
-  opacity: 1;
+.Ez:hover {
+  .start {
+    opacity: 1;
+  }
+
+  span {
+    opacity: 0;
+  }
 }
 
+.Md:hover {
+  .middle {
+    opacity: 1;
+  }
+
+  span {
+    opacity: 0;
+  }
+}
+
+.Hd:hover {
+  .end {
+    opacity: 1;
+  }
+
+  span {
+    opacity: 0;
+  }
+}
 
 
 
