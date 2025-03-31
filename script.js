@@ -1,17 +1,17 @@
 const wordlist= [
-'Lymphangioleiomyomatosis',
-'Disestablishmentarianism',
-'Defenestration',
+'lymphangioleiomyomatosis',
+'disestablishmentarianism',
+'defenestration',
 'pneumonoultramicroscopicsilicovolcanoconiosis',
-'Antidisestablishmentarianism',
-'Istles',
-'Hangman',
+'antidisestablishmentarianism',
+'istles',
+'hangman',
 'random',
-'Even',
-'Lost', 
-'The',
-'Meow',
-'Tax',
+'even',
+'lost', 
+'the',
+'meow',
+'tax',
 ]
 
 
@@ -20,7 +20,7 @@ let selectedWord = ''
 let displayedWord = ''
 let wrongGuesses = 0
 let guessedLetters = []
-const mxMistakes = 6
+const maxMistakes = 6
 
 function startGame(level){
     selectedWord = getRandomWord(level)
@@ -93,7 +93,7 @@ function guessLetter(){
     }
 
 
-    if(selectedWord.includes(guessedLetters)){
+    if(selectedWord.includes(guessedLetter)){
         correctGuess(guessedLetter)
     } else {
         wrongGuess(guessedLetter)
@@ -111,17 +111,16 @@ function wrongGuess(guessedLetter){
     //add the guessed letter to the guessed letters display
     document.getElementById('wrongLetters').textContent += ` ${guessedLetter}`
 
-    document.getElementById('shamrock').src = `imgs/shamrock${6 - wrongGuesses}.jpg`
+    //document.getElementById('shamrock').src = `imgs/shamrock${6 - wrongGuesses}.jpg`
 
     //check to see if the # of wrong guesses is equal to the maxMistakes if i is then call endgame(false)
     if(wrongGuesses === maxMistakes){
-        endgame(false)
-    }
+        endGame(false)}
 
 }
 
 function correctGuess(guessedLetter){
-   let newDisplyWord = '' 
+   let newDisplayWord = '' 
 
    for (let i = 0; i < selectedWord.length; i++){
     if (selectedWord[i] === guessedLetter){
@@ -131,12 +130,12 @@ function correctGuess(guessedLetter){
     }
   }
 
-    displayWord = newDisplayWord 
+    displayedWord = newDisplayWord 
     document.getElementById('wordDisplay').textContent = displayedWord
     .split('')
     .join(' ')
 
-    if(displayedWord.includes('_')){
+    if(!displayedWord.includes('_')){
         endGame(true)
     }
 }
