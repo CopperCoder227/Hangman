@@ -105,6 +105,9 @@ function guessLetter(){
 }
 
 function wrongGuess(guessedLetter){
+    //sound
+    sound("sound/wrong.wav")
+
     //increment # of wrong guessed
     wrongGuesses++
 
@@ -120,6 +123,10 @@ function wrongGuess(guessedLetter){
 }
 
 function correctGuess(guessedLetter){
+    //sound
+    sound("sound/right.wav")
+
+
    let newDisplayWord = '' 
 
    for (let i = 0; i < selectedWord.length; i++){
@@ -140,16 +147,53 @@ function correctGuess(guessedLetter){
     }
 }
 
-function endGame(won){
-    if (won == true){
-        setTimeout(() => alert('yay you won'), 100)
-
-    } else{
-        setTimeout(() => alert('yay you lost'), 100)
-
+function endGame(won) {
+    if (won === true) {
+        // Change the content of the game area to show a win message
+        setTimeout(() => {
+            sound("sound/complete.wav")
+            document.getElementById('gameArea').innerHTML = `
+                <div style="text-align: center; font-size: 24px; font-weight: bold;">
+                    Congrats! You beat Inpossa-man!<br>
+                    <button onclick="restartGame()" class="btn difficulty-btn Ez">
+                        Play Again
+                    </button>
+                </div>
+            `;
+        }, 100);
+    } else {
+        // Change the content of the game area to show a loss message
+        setTimeout(() => {
+            sound("sound/incomplete.wav")
+            document.getElementById('gameArea').innerHTML = `
+                <div style="text-align: center; font-size: 24px; font-weight: bold;">
+                    You lost to Inpossa-man!<br>
+                    <button onclick="restartGame()" class="btn difficulty-btn Ez">
+                        Try Again?
+                    </button>
+                </div>
+            `;
+        }, 100);
     }
 }
 
+
 function restartGame(){
     location.reload()
+}
+
+
+// enter btn
+document.getElementById('letterInput').addEventListener('keydown', function(event) {
+    // If Enter key (key code 13 or 'Enter') is pressed, call guessLetter
+    if (event.key === 'Enter') {
+      event.preventDefault(); // Prevent default action (like form submission)
+      guessLetter(); // Trigger guessLetter function
+    }
+  });
+
+
+  function sound(url){
+    let audio = new Audio(url)
+    audio.play()
 }
