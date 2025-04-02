@@ -40,10 +40,10 @@
         <br>
         <br>
         
-     <div class="container">
+     <div class="container mb-4">
 
-<div class="row justify-content-around ">
-          <button class="btn difficulty-btn Ez col-3 pt-4 pb-4 pl-4 pr-4" onclick="startGame('Hard')"> <span>Hard</span> 
+<div class="row justify-content-around">
+          <button class="btn difficulty-btn Ez col-3 pt-5 pb-5 pl-5 pr-5" onclick="startGame('Hard')"> <span>Hard</span> 
           <div class="start EzT">
             <div class="text">
               Random words that are 4 or less letters!
@@ -96,14 +96,26 @@
       <!--Wrong Guesses-->
       <p id="wrongLetters" class="fw-bold text-danger" >Wrong Guesses: </p>
 
-      <!--guy Health-->
-      <img id="guy" src="" alt="dead guy" class="guy-img">
+      <!-- Add an image to represent the hangman -->
+      <div id="hangmanImage" style="text-align: center;">
+        <img id="hangmanFigure" src="imgs/HM1.png" alt="Hangman Figure" style="width: 150px;">
+      </div>
+
 
       <!-- Restart Health-->
        <div class="mt-4">
         <btn id="restartBtn" class="btn btn-danger" onclick="restartGame()">Restart Game</btn>
        </div>
        </div>
+      
+       <!-- Graveyard Section -->
+       
+       <div id="graveyard gameArea" class="text-align-center  mt-4">
+          <h3>Graveyard</h3>
+            <p><strong>Correct Words:</strong> <span id="correctWords"></span></p>
+            <p><strong>Wrong Words:</strong> <span id="wrongWords"></span></p>
+        </div>
+
        </div>
 
     </main>

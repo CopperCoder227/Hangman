@@ -175,8 +175,39 @@ body {
   }
 }
 
+#hangmanImage {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#hangmanFigure {
+  width: 150px;
+  height: auto;
+}
 
 
+#graveyard {
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin-top: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#graveyard h3 {
+  font-size: 24px;
+  color: #333;
+}
+
+#graveyard p {
+  font-size: 18px;
+  color: #555;
+}
+
+#graveyard span {
+  font-weight: bold;
+  color: #007bff;
+}
 
 
 

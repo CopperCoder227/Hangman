@@ -104,54 +104,68 @@ function guessLetter(){
 
 }
 
-function wrongGuess(guessedLetter){
-    //sound
-    sound("sound/wrong.wav")
+function wrongGuess(guessedLetter) {
+    // Play sound for wrong guess
+    sound("sound/wrong.wav");
 
-    //increment # of wrong guessed
-    wrongGuesses++
+    // Increment the number of wrong guesses
+    wrongGuesses++;
 
-    //add the guessed letter to the guessed letters display
-    document.getElementById('wrongLetters').textContent += ` ${guessedLetter}`
+    // Add the guessed letter to the wrong letters display
+    document.getElementById('wrongLetters').textContent += ` ${guessedLetter}`;
 
-    //document.getElementById('shamrock').src = `imgs/shamrock${6 - wrongGuesses}.jpg`
+    // Update the hangman image based on the number of wrong guesses
+    document.getElementById('hangmanFigure').src = `imgs/HM${wrongGuesses}.png`;
 
-    //check to see if the # of wrong guesses is equal to the maxMistakes if i is then call endgame(false)
-    if(wrongGuesses === maxMistakes){
-        endGame(false)}
-
-}
-
-function correctGuess(guessedLetter){
-    //sound
-    sound("sound/right.wav")
-
-
-   let newDisplayWord = '' 
-
-   for (let i = 0; i < selectedWord.length; i++){
-    if (selectedWord[i] === guessedLetter){
-        newDisplayWord += guessedLetter
-    } else {
-        newDisplayWord += displayedWord[i]
-    }
-  }
-
-    displayedWord = newDisplayWord 
-    document.getElementById('wordDisplay').textContent = displayedWord
-    .split('')
-    .join(' ')
-
-    if(!displayedWord.includes('_')){
-        endGame(true)
+    // Check if the number of wrong guesses has reached the maximum number of allowed mistakes (game over)
+    if (wrongGuesses === maxMistakes) {
+        endGame(false);  // If max mistakes are reached, end the game with a loss
     }
 }
+
+
+
+
+function correctGuess(guessedLetter) {
+    // Play sound for correct guess
+    sound("sound/right.wav");
+
+    let newDisplayWord = '';
+
+    // Update displayed word
+    for (let i = 0; i < selectedWord.length; i++) {
+        if (selectedWord[i] === guessedLetter) {
+            newDisplayWord += guessedLetter;
+        } else {
+            newDisplayWord += displayedWord[i];
+        }
+    }
+
+    displayedWord = newDisplayWord;
+    document.getElementById('wordDisplay').textContent = displayedWord.split('').join(' ');
+
+    // Check if the word is fully guessed
+    if (!displayedWord.includes('_')) {
+        endGame(true);  // If the word is completed, end the game with a win
+    }
+}
+
+
 
 function endGame(won) {
+    // After game is over, update the Graveyard
     if (won === true) {
-        // Change the content of the game area to show a win message
+        // Update the Graveyard with the correctly guessed word
+        updateGraveyard(true, selectedWord);
+    } else {
+        // Update the Graveyard with the wrong word
+        updateGraveyard(false, selectedWord);
+    }
+
+    // Display a win or loss message
+    if (won === true) {
         setTimeout(() => {
-            sound("sound/complete.wav")
+            sound("sound/complete.wav");
             document.getElementById('gameArea').innerHTML = `
                 <div style="text-align: center; font-size: 24px; font-weight: bold;">
                     Congrats! You beat Inpossa-man!<br>
@@ -162,12 +176,12 @@ function endGame(won) {
             `;
         }, 100);
     } else {
-        // Change the content of the game area to show a loss message
         setTimeout(() => {
-            sound("sound/incomplete.wav")
+            sound("sound/incomplete.wav");
             document.getElementById('gameArea').innerHTML = `
                 <div style="text-align: center; font-size: 24px; font-weight: bold;">
                     You lost to Inpossa-man!<br>
+                    <img src="imgs/HM6.png" class="img"> <br>
                     <button onclick="restartGame()" class="btn difficulty-btn Ez">
                         Try Again?
                     </button>
@@ -177,10 +191,6 @@ function endGame(won) {
     }
 }
 
-
-function restartGame(){
-    location.reload()
-}
 
 
 // enter btn
@@ -196,4 +206,46 @@ document.getElementById('letterInput').addEventListener('keydown', function(even
   function sound(url){
     let audio = new Audio(url)
     audio.play()
+}
+
+function updateGraveyard(isCorrect, word) {
+    let correctWords = document.getElementById('correctWords');
+    let wrongWords = document.getElementById('wrongWords');
+
+    // Update the correct or wrong word list
+    if (isCorrect) {
+        correctWords.textContent += word + ', ';
+    } else {
+        wrongWords.textContent += word + ', ';
+    }
+}
+
+
+
+function restartGame() {
+    document.getElementById('dificultySelection').classList.remove('d-none');
+    // document.getElementById('wordSection').classList.remove('d-none');
+    document.getElementById('difficultyBox').classList.add('d-none');
+    document.getElementById('gameArea').classList.add('d-none');
+    // document.getElementById('winsDisplay').classList.remove('d-none');
+    // document.getElementById('lossesDisplay').classList.remove('d-none');
+
+    lives = 6;
+    wrongGuesses = 0;
+    guessedLetters = [];
+    selectedWord = '';
+    displayedWord = '';
+    slots = [];
+    flawlessVictory = true;
+
+    // document.getElementById('lives').textContent = `Lives: ${lives}`;
+    //document.getElementById('wrongLetters').textContent = 'Wrong Guesses:';
+    // document.getElementById('victoryText').classList.add('d-none');
+    // document.getElementById('lossText').classList.add('d-none');
+    // document.getElementById('revealedWord').classList.add('d-none');
+    // document.getElementById('victoryReveal').classList.add('d-none');
+    document.getElementById('wordDisplay').textContent = '';
+    document.getElementById('letterInput').value = '';
+    document.getElementById('guessBtn').disabled = false;
+    // updateHealthDisplay();
 }
