@@ -1,17 +1,18 @@
-const wordlist= [
-'lymphangioleiomyomatosis',
-'disestablishmentarianism',
-'defenestration',
-'pneumonoultramicroscopicsilicovolcanoconiosis',
-'antidisestablishmentarianism',
-'istles',
-'hangman',
-'random',
-'even',
-'lost', 
-'the',
-'meow',
-'tax',
+"use strict";
+const wordlist = [
+    'lymphangioleiomyomatosis',
+    'disestablishmentarianism',
+    'defenestration',
+    'pneumonoultramicroscopicsilicovolcanoconiosis',
+    'antidisestablishmentarianism',
+    'istles',
+    'hangman',
+    'random',
+    'even',
+    'lost',
+    'the',
+    'meow',
+    'tax',
 ]
 
 
@@ -22,20 +23,17 @@ let wrongGuesses = 0
 let guessedLetters = []
 const maxMistakes = 6
 
-function startGame(level){
+let lives = maxMistakes
+
+function startGame(level) {
     selectedWord = getRandomWord(level)
-    
+
     // Update Difficulty selection bax
     updateDifficultyDisplay(level)
 
     //create placeholder for the selected word
     displayedWord = '_'.repeat(selectedWord.length)
     document.getElementById('wordDisplay').textContent = displayedWord.split('').join(' ')
-
-
-
-
-
 
     // hide difficulty selection and show game area
     document.getElementById("dificultySelection").classList.add('d-none')
@@ -48,22 +46,22 @@ function startGame(level){
 
 }
 
-function getRandomWord(level){
-    let filteredWords = wordlist.filter( word => {
+function getRandomWord(level) {
+    let filteredWords = wordlist.filter(word => {
         if (level === 'Hard') return word.length <= 4 //change the 4 so its longer and change the words shorter than 4
         if (level === 'Insane') return word.length >= 5 && word.length <= 7
         if (level === 'Imposable') return word.length >= 8
     })
 
-    return filteredWords[ Math.floor(Math.random() * filteredWords.length)]
+    return filteredWords[Math.floor(Math.random() * filteredWords.length)]
 
 }
 
-function updateDifficultyDisplay(level){
+function updateDifficultyDisplay(level) {
     let difficultyBox = document.getElementById('difficultyBox')
 
     //remove previously difficulty bux
-    difficultyBox.classList.remove('Hard','Insane','Imposable')
+    difficultyBox.classList.remove('Hard', 'Insane', 'Imposable')
 
     difficultyBox.textContent = `${level.charAt(0).toUpperCase() + level.slice(1)}`
 
@@ -71,29 +69,29 @@ function updateDifficultyDisplay(level){
     difficultyBox.classList.add(level)
 }
 
-function guessLetter(){
+function guessLetter() {
     let inputField = document.getElementById('letterInput')         //get input field
     let guessedLetter = inputField.value.toLowerCase()             //convert to lower case
 
     //check if input is valad between lowercase A-Z
-    if(!guessedLetter.match(/^[a-z]$/)){
+    if (!guessedLetter.match(/^[a-z]$/)) {
         alert('Please enter a letter between a-z')
         inputField.value = ''                                       //clear input field
         return                                                     //exit function
     }
 
     //check if lettre was already guessed
-    if(guessedLetters.includes(guessedLetter)){
+    if (guessedLetters.includes(guessedLetter)) {
         alert('You already tried this letter! Put another letter you have yet to try!')
         inputField.value = ''                                       //clear input field
         return                                                     //exit function
-    } else{
+    } else {
         //store guessed letter in guessedLetter]
         guessedLetters.push(guessedLetter)
     }
 
 
-    if(selectedWord.includes(guessedLetter)){
+    if (selectedWord.includes(guessedLetter)) {
         correctGuess(guessedLetter)
     } else {
         wrongGuess(guessedLetter)
@@ -194,16 +192,16 @@ function endGame(won) {
 
 
 // enter btn
-document.getElementById('letterInput').addEventListener('keydown', function(event) {
+document.getElementById('letterInput').addEventListener('keydown', function (event) {
     // If Enter key (key code 13 or 'Enter') is pressed, call guessLetter
     if (event.key === 'Enter') {
-      event.preventDefault(); // Prevent default action (like form submission)
-      guessLetter(); // Trigger guessLetter function
+        event.preventDefault(); // Prevent default action (like form submission)
+        guessLetter(); // Trigger guessLetter function
     }
-  });
+});
 
 
-  function sound(url){
+function sound(url) {
     let audio = new Audio(url)
     audio.play()
 }
@@ -224,26 +222,20 @@ function updateGraveyard(isCorrect, word) {
 
 function restartGame() {
     document.getElementById('dificultySelection').classList.remove('d-none');
-    // document.getElementById('wordSection').classList.remove('d-none');
     document.getElementById('difficultyBox').classList.add('d-none');
     document.getElementById('gameArea').classList.add('d-none');
-    // document.getElementById('winsDisplay').classList.remove('d-none');
-    // document.getElementById('lossesDisplay').classList.remove('d-none');
 
     lives = 6;
     wrongGuesses = 0;
     guessedLetters = [];
     selectedWord = '';
     displayedWord = '';
-    slots = [];
-    flawlessVictory = true;
 
     // document.getElementById('lives').textContent = `Lives: ${lives}`;
-    //document.getElementById('wrongLetters').textContent = 'Wrong Guesses:';
+    // document.getElementById('wrongLetters').textContent = 'Wrong Guesses:';
     // document.getElementById('victoryText').classList.add('d-none');
     // document.getElementById('lossText').classList.add('d-none');
     // document.getElementById('revealedWord').classList.add('d-none');
-    // document.getElementById('victoryReveal').classList.add('d-none');
     document.getElementById('wordDisplay').textContent = '';
     document.getElementById('letterInput').value = '';
     document.getElementById('guessBtn').disabled = false;
